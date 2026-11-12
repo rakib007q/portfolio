@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#0B1118"/>
+  <rect x="0" y="0" width="800" height="48" fill="#070B10"/>
+  <circle cx="28" cy="24" r="6" fill="#FF5F57"/><circle cx="52" cy="24" r="6" fill="#FEBC2E"/><circle cx="76" cy="24" r="6" fill="#28C840"/>
+  <rect x="120" y="14" width="300" height="20" rx="10" fill="#1A2433"/>
+  <text x="40" y="110" font-family="sans-serif" font-size="42" font-weight="700" fill="#E6EDF3">BexoBD</text>
+  <text x="40" y="150" font-family="sans-serif" font-size="20" fill="#14E3C6">Dropshipping &amp; Reselling Platform</text>
+  <rect x="40" y="180" width="180" height="44" rx="22" fill="#14E3C6"/>
+  <text x="130" y="208" font-family="sans-serif" font-size="16" font-weight="700" fill="#070B10" text-anchor="middle">Start Selling</text>
+  <rect x="460" y="90" width="300" height="200" rx="16" fill="#14E3C6" opacity="0.18"/>
+  <rect x="480" y="110" width="260" height="24" rx="6" fill="#14E3C6" opacity="0.5"/>
+  <rect x="480" y="146" width="200" height="14" rx="6" fill="#8B98A5" opacity="0.6"/>
+  <rect x="480" y="172" width="220" height="14" rx="6" fill="#8B98A5" opacity="0.4"/>
+  <text x="40" y="400" font-family="sans-serif" font-size="16" fill="#8B98A5">Screenshot slot — replace with a real BexoBD screenshot (public/projects/bexobd.svg)</text>
+</svg>
