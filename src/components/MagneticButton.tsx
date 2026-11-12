@@ -40,7 +40,7 @@ export default function MagneticButton({
   const style =
     variant === "primary"
       ? "bg-[#14E3C6] text-[#070B10] hover:bg-[#2DD4BF] shadow-[0_0_32px_rgba(20,227,198,0.35)]"
-      : "border border-[#14E3C6]/50 text-[#E6EDF3] hover:border-[#14E3C6] hover:bg-[#14E3C6]/10";
+      : "border-2 border-[#14E3C6] bg-[#070B10] text-white hover:border-[#2DD4BF] hover:bg-[#0B1118]";
 
   return (
     <motion.a
