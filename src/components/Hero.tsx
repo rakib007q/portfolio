@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import { isLowEndDevice, prefersReducedMotion, webglSupported } from "@/lib/device";
+import { shouldUseStaticHero } from "@/lib/device";
 import MagneticButton from "./MagneticButton";
 
 // Lazy-load ALL 3D after first paint — the headline is the LCP, not the canvas.
@@ -21,9 +21,8 @@ export default function Hero() {
     // After first paint: decide whether WebGL is worth it on this device.
     const t = window.setTimeout(() => {
       setMounted(true);
-      setUse3d(
-        !prefersReducedMotion() && webglSupported() && !isLowEndDevice()
-      );
+      // Static fallback (no WebGL) on low-end devices or with Save-Data on.
+      setUse3d(!shouldUseStaticHero());
     }, 150);
     return () => window.clearTimeout(t);
   }, []);
@@ -34,14 +33,20 @@ export default function Hero() {
       aria-label="Introduction"
       className="relative flex min-h-svh items-center overflow-hidden pt-[72px]"
     >
-      {/* 3D background, or a lightweight static gradient on low-end devices. */}
+      {/* 3D background, or a lightweight static gradient on low-end devices.
+          On mobile the canvas is dimmed to ~40% opacity so the shapes
+          never compete with the text. */}
       <div className="absolute inset-0" aria-hidden="true">
         {mounted && use3d ? (
-          <HeroScene />
+          <div className="absolute inset-0 max-md:opacity-40">
+            <HeroScene />
+          </div>
         ) : (
           <div className="hero-static absolute inset-0" />
         )}
       </div>
+      {/* Soft dark scrim behind the text so it stays readable over the shapes. */}
+      <div className="hero-text-scrim absolute inset-0" aria-hidden="true" />
       <div
         className="absolute inset-0 bg-gradient-to-b from-[#070B10]/40 via-transparent to-[#070B10]"
         aria-hidden="true"
@@ -63,7 +68,7 @@ export default function Hero() {
               Web Developer &amp; SEO Professional
             </span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#8B98A5] sm:text-xl">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#C3CDD6] sm:text-xl">
             I build fast, modern websites and help your business grow on
             Google.
           </p>
